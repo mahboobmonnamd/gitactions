@@ -1,7 +1,7 @@
 name: Release Tag
 
 outputs:
-  random-number:
+  tag:
     description: "Random number"
     value: ${{ steps.set-tag.outputs.tag }}
 
@@ -16,6 +16,7 @@ runs:
         case "$GITHUB_REF" in
           refs/tags/*)
           TAG=${GITHUB_REF#refs/tags/}
+          echo $TAG
           echo "tag=$TAG" >> GITHUB_OUTPUT
           ;;
         esac
