@@ -1,5 +1,10 @@
 name: Release Tag
 
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.set-tag.outputs.tag }}
+
 runs:
   using: 'composite'
   steps:
