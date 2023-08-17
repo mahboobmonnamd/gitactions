@@ -1,0 +1,16 @@
+name: Release Tag
+
+runs:
+  using: 'composite'
+  steps:
+    - name: set release Tag
+      id: set-tag
+      shell: bash
+      run: |
+        echo $GITHUB_REF
+        case "$GITHUB_REF" in
+          refs/tags/*)
+          TAG=${GITHUB_REF#refs/tags/}
+          echo "tag=$TAG" >> GITHUB_OUTPUT
+          ;;
+        esac

@@ -1,0 +1,14 @@
+name: validate release
+on:
+  release:
+    types: [published]
+  
+jobs:
+  validate-tags:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3
+
+    - uses: ./actions/validate-release.yaml
