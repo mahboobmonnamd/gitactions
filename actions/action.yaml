@@ -1,4 +1,10 @@
 name: Release Tag
+description: "sd"
+
+inputs:
+  name:
+    description: some text
+    required:  false
 
 outputs:
   tag:
@@ -20,3 +26,11 @@ runs:
           echo "tag=$TAG" >> $GITHUB_OUTPUT
           ;;
         esac
+
+    - name: check script
+      shell: bash
+      run: |
+        echo ${{ inputs.name }}
+        if [[ -n ${{ inputs.name }} ]]; then
+          echo "inside if"
+        fi
