@@ -1,7 +1,7 @@
 name: validate release
 on:
   release:
-
+  push:
   
 jobs:
   validate-tags:
