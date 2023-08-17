@@ -14,4 +14,4 @@ jobs:
     - uses: ./actions
       id: set-tag
 
-    - run: echo ${{ steps.set-tag.outputs.tag }}
+    - run: echo TAG ${{ steps.set-tag.outputs.tag }}
