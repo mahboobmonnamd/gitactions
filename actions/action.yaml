@@ -19,18 +19,13 @@ runs:
       shell: bash
       run: |
         echo $GITHUB_REF
-        case "$GITHUB_REF" in
-          refs/tags/*)
           TAG=${GITHUB_REF#refs/tags/}
           echo $TAG
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-          ;;
-        esac
 
     - name: check script
       shell: bash
       run: |
         echo ${{ inputs.name }}
-        if [[ -n ${{ inputs.name }} ]]; then
+        if [[ -n "${{ inputs.name }}" ]]; then
           echo "inside if"
         fi
