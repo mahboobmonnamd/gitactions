@@ -29,3 +29,12 @@ runs:
         if [[ -n "${{ inputs.name }}" ]]; then
           echo "inside if"
         fi
+
+    - name: check condition
+      shell: bash
+      run: |
+        if [[ ${{ ( github.event_name == 'release' || github.ref == 'refs/heads/main') }} ]]; then
+          echo "inside if"
+        else
+          echo "inside else"
+        fi
